@@ -25,7 +25,14 @@ app.use(express.static('public'));
 // TODO: handle pagination for reviews
 // i.e.: https://stackoverflow.com/questions/18524125/req-query-and-req-param-in-expressjs
 app.get('/api/reviews/:productId', (req, res) => {
-  db.getReviewsForProductId((err, queryResults) => {
+  const { productId } = req.params;
+  // Create variable to handle pagination options in database query
+  const pageOptions = {
+    page: parseInt(req.query.page, 10) || 0,
+    limit: parseInt(req.query.limit, 10) || 10,
+  };
+
+  db.getReviewsForProductId(productId, pageOptions, (err, queryResults) => {
     if (err) console.log('Error occured in database query: getReviewsForProductId.\n', err);
     res.status(200).json(queryResults);
   });
