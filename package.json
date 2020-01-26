@@ -6,7 +6,8 @@
   "scripts": {
     "build-dev": "webpack -d -w",
     "start-dev": "nodemon server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed-db": "md-seed run --dropdb"
   },
   "repository": {
     "type": "git",
@@ -32,9 +33,16 @@
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.0.6",
+    "babel-plugin-add-module-exports": "^1.0.2",
     "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "mongoose": "^5.8.9",
+    "mongoose-data-seed": "^2.1.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "webpack": "^4.41.5"
+  },
+  "mdSeed": {
+    "seedersFolder": "./server/database/scripts/seeders"
   }
 }
