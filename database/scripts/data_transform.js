@@ -4,10 +4,10 @@
 /* eslint-disable camelcase */
 /* eslint-disable max-len */
 
-const faker = require('faker');
+const faker = require('faker'); // https://github.com/marak/Faker.js/
 const fs = require('fs');
 const path = require('path');
-const { data } = require('./raw_sample_data.js'); // https://github.com/marak/Faker.js/
+const { data } = require('../sampledata/raw_sample_data');
 
 const numMaxProductIds = 100; // product IDs should range between 1 and 100.
 const numMaxReviews = 10; // maximum number of reviews per product id
@@ -37,7 +37,7 @@ const generateReviews = () => {
 
     for (let i = 0; i < productIdReviewNumber; i += 1, reviewIdCount += 1) {
       let review_id = reviewIdCount; // Auto-incrementing integer (key) (REQUIRED)
-      let date_created = data[reviewIdCount].unixReviewTime; // Epoch time (or perhaps in some other ISO string format) (REQUIRED)
+      let date_created = data[reviewIdCount].unixReviewTime * 1000; // Epoch time (or perhaps in some other ISO string format) (REQUIRED)
       let product_id = productId; // Integer between 1 and 100 (initially) (REQUIRED)
       let customer = { // Embedded object representing the details of the customer who made the review (REQUIRED)
         customer_id: data[reviewIdCount].reviewerID, // String representing a unique customer ID (REQUIRED)
@@ -67,7 +67,7 @@ const generateReviews = () => {
       });
     }
   }
-  return { data: reviews };
+  return reviews;
 };
 
 // Generate reviews
@@ -76,4 +76,4 @@ const dataObj = generateReviews();
 console.log(`Completed generating ${reviewIdCount} reviews!`);
 
 // Write the object to a new .json file
-fs.writeFileSync(path.join(__dirname, 'data', 'sample_data.json'), JSON.stringify(dataObj, null, '\t'));
+fs.writeFileSync(path.join(__dirname, '..', 'sampledata', 'sample_data.json'), JSON.stringify(dataObj, null, '\t'));

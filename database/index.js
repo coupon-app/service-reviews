@@ -3,7 +3,7 @@
 // ////////////////////////////////////////////////////////////////////////////////////////
 
 const mongoose = require('mongoose');
-const Reviews = require('../database/models/reviews');
+const Reviews = require('./models/reviews');
 
 mongoose.connect('mongodb://localhost/reviews', {
   useNewUrlParser: true,
@@ -18,7 +18,7 @@ db.on('open', () => console.log('Successfully connected to MongoDB!'));
 // and pagination information
 // Reference: https://stackoverflow.com/questions/5539955/how-to-paginate-with-mongoose-in-node-js
 let getReviewsForProductId = (product_id, pageOptions, cb) => {
-  console.log(`About to execute a query for productId: ${productId}, page: ${pageOptions.page}, limit: ${pageOptions.limit}`);
+  console.log(`About to execute a query for productId: ${product_id}, page: ${pageOptions.page}, limit: ${pageOptions.limit}`);
   Reviews
     .find({ product_id })
     .skip(pageOptions.page * pageOptions.limit)

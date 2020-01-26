@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
+
 // Example taken from:
 // https://github.com/sharvit/mongoose-data-seed/blob/master/examples/md-seed-example/server/models/post.js
-// Modify for Reviews schema
 
 import mongoose, { Schema } from 'mongoose';
 
@@ -52,55 +52,6 @@ const reviewSchema = new Schema(
     },
   },
 );
-
-
-// --------------------------------------------------------------------------- //
-/* {
-  author: {
-    type: Schema.ObjectId,
-    ref: 'User',
-    index: true,
-    required: 'Post author cannot be blank',
-  },
-
-  title: {
-    type: String,
-    trim: true,
-    required: 'Post title cannot be blank',
-  },
-
-  body: {
-    type: String,
-    trim: true,
-    required: 'Post body cannot be blank',
-  },
-
-  comments: [
-    {
-      author: {
-        type: Schema.ObjectId,
-        ref: 'User',
-        required: 'Comment author cannot be blank',
-      },
-      body: {
-        type: String,
-        trim: true,
-        required: 'Post body cannot be blank',
-      },
-      createdAt: { type: Date, default: Date.now },
-    },
-  ],
-
-  tags: {
-    type: [],
-    get: tags => tags.join(','),
-    set: tags => tags.split(','),
-  },
-},
-{
-  timestamps: true,
-}
-); */
 
 /**
  * Methods

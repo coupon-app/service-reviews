@@ -8,7 +8,7 @@
     "start-dev": "nodemon server",
     "start-babel": "npx babel-node server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed-db": "md-seed run --dropdb"
+    "seed": "node database/scripts/data_transform.js && mongo reviews --eval 'db.reviews.drop()' && mongoimport --db=reviews --collection=reviews --file=database/sampledata/sample_data.json --jsonArray"
   },
   "repository": {
     "type": "git",
