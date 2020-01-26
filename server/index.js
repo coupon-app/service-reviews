@@ -1,10 +1,10 @@
 // ///////////////////////////////////////////////////////////////////////////////////////
 // IMPORTS ///////////////////////////////////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////////////////////////
-import express from 'express';
-import morgan from 'morgan';
+const express = require('express');
+const morgan = require('morgan');
 
-import db from './database'; // TODO: create index.js in /database with connection details
+const db = require('./database'); // TODO: create index.js in /database with connection details
 
 const app = express();
 const PORT = process.env.PORT || 3000;
