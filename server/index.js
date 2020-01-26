@@ -4,7 +4,11 @@
 const express = require('express');
 const morgan = require('morgan');
 
+<<<<<<< HEAD
 const db = require('./database');
+=======
+const db = require('./database'); // TODO: create index.js in /database with connection details
+>>>>>>> 52dbcd1ef7cd0382209c65d5e559ac6634745c01
 
 const app = express();
 const PORT = process.env.PORT || 3000;
