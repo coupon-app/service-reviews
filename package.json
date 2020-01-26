@@ -6,6 +6,7 @@
   "scripts": {
     "build-dev": "webpack -d -w",
     "start-dev": "nodemon server",
+    "start-babel": "npx babel-node server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed-db": "md-seed run --dropdb"
   },
@@ -31,6 +32,7 @@
   "dependencies": {
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.0.6",

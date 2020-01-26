@@ -4,7 +4,7 @@
 const express = require('express');
 const morgan = require('morgan');
 
-const db = require('./database'); // TODO: create index.js in /database with connection details
+const db = require('./database');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,19 +21,20 @@ app.use(express.static('public'));
 // ROUTES ////////////////////////////////////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////////////////////////
 
+// Route to handle get requests for a specific productId endpoint.
+// Route also extracts page options sent as queries in the URL (if any) and passes to
+// database query function.
 
-// TODO: handle pagination for reviews
-// i.e.: https://stackoverflow.com/questions/18524125/req-query-and-req-param-in-expressjs
 app.get('/api/reviews/:productId', (req, res) => {
-  const { productId } = req.params;
-  // Create variable to handle pagination options in database query
-  const pageOptions = {
+  const { productId } = req.params; // Create variable to store productId from req.params
+  const pageOptions = { // Create variable to store pagination options from req.query
     page: parseInt(req.query.page, 10) || 0,
-    limit: parseInt(req.query.limit, 10) || 10,
+    limit: parseInt(req.query.limit, 10) || 15,
   };
 
   db.getReviewsForProductId(productId, pageOptions, (err, queryResults) => {
     if (err) console.log('Error occured in database query: getReviewsForProductId.\n', err);
+    console.log(`Retrieved ${queryResults.length} customer reviews from database and sending back to client.`);
     res.status(200).json(queryResults);
   });
 });
