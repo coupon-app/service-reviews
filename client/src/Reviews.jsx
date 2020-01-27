@@ -18,15 +18,9 @@ class Reviews extends React.Component {
         <div>
           <h2>Customer Reviews</h2>
         </div>
-        <div>
-          <AverageRating average={'/* TODO */'} ratings={'/* TODO */'} />
-        </div>
-        <div>
-          <VerifiedReviewsHeader />
-        </div>
-        <div>
-          <ReviewCard reviews={this.state.reviews} />
-        </div>
+        <AverageRating average={'/* TODO */'} ratings={'/* TODO */'} />
+        <VerifiedReviewsHeader />
+        <ReviewCard reviews={this.state.reviews} />
       </div>
     );
   }
