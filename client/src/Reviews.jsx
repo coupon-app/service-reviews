@@ -4,7 +4,7 @@ import AverageRating from './Components/AverageRating';
 import VerifiedReviewsHeader from './Components/VerifiedReviewsHeader';
 import ReviewCard from './Components/ReviewCard';
 
-class Reviews extends React.Component {
+export default class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,5 +25,3 @@ class Reviews extends React.Component {
     );
   }
 }
-
-export default Reviews;
