@@ -2,7 +2,7 @@
 
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import Reviews from '../client/src/Reviews';
 
@@ -13,8 +13,8 @@ describe('Reviews Component', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('[Sample] state should include reviews state property', () => {
-    const wrapper = mount(<Reviews />);
+  it('[Sample] state should include correct heading 2 text', () => {
+    const wrapper = shallow(<Reviews />);
     expect(wrapper.find('h2').text()).toEqual('Customer Reviews');
   });
 });
