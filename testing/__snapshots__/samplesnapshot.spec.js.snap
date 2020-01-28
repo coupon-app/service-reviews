@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reviews snapshot renders (sample test) 1`] = `
+<div>
+  <div>
+    <h2>
+      Customer Reviews
+    </h2>
+  </div>
+  <div>
+    Hello from AverageRating component!
+  </div>
+  <div>
+    Hello from VerifiedReviewsHeader component!
+  </div>
+  <div>
+    Hello from ReviewCard component!
+  </div>
+</div>
+`;
