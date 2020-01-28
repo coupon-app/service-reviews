@@ -17,6 +17,7 @@ module.exports = function (api) {
 
   const plugins = [
     'add-module-exports',
+    'babel-plugin-styled-components',
   ];
 
   return {
