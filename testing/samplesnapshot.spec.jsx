@@ -9,7 +9,7 @@ import Reviews from '../client/src/Reviews';
 describe('Reviews Component', () => {
   test('[Sample] snapshot renders', () => {
     const component = renderer.create(<Reviews />);
-    let tree = component.toJSON();
+    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

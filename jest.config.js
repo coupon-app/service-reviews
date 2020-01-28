@@ -23,7 +23,10 @@ module.exports = {
   collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  collectCoverageFrom: ['client/src/**/*.{js,jsx}'],
+  collectCoverageFrom: [
+    'client/src/**/*.{js,jsx}',
+    '!**/node_modules/**',
+  ],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: './testing/coverage',
@@ -67,7 +70,7 @@ module.exports = {
 
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: [
-    "node_modules"
+    'node_modules',
   ],
 
   // An array of file extensions your modules use
@@ -139,7 +142,7 @@ module.exports = {
 
   // Options that will be passed to the testEnvironment
   testEnvironmentOptions: {
-    'enzymeAdapter': 'react16'
+    enzymeAdapter: 'react16',
   },
 
   // Adds a location field to test results
@@ -158,7 +161,7 @@ module.exports = {
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // The following regexp pattern looks for and only tests filenames that match: *.spec.js
-  testRegex: '((\\.|/*.)(spec))\\.js?$',
+  testRegex: '((\\.|/*.)(spec))\\.(js|jsx)$',
 
   // This option allows the use of a custom results processor
   // testResultsProcessor: undefined,
