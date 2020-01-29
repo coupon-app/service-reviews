@@ -26,11 +26,13 @@ export default class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: [],
+      reviews: [], // TODO: Replace with data from fetch call
     };
   }
 
   /* -------------------------  RENDER ------------------------- */
+
+  // TODO: replace props with data retrieved from fetch call.
 
   render() {
     return (
@@ -38,7 +40,7 @@ export default class Reviews extends React.Component {
         <div>
           <Title>Customer Reviews</Title>
         </div>
-        <AverageRating average={4.3} ratings={399} />
+        <AverageRating average={2.3} ratings={235} />
         <VerifiedReviewsHeader />
         <ReviewCard reviews={this.state.reviews} />
       </ContainerDiv>
