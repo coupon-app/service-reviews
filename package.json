@@ -7,6 +7,7 @@
     "build-dev": "webpack -d -w",
     "start-dev": "nodemon server",
     "start-babel": "npx babel-node server",
+    "dev": "concurrently \"npm:build-dev\" \"npm:start-babel\"",
     "test": "jest",
     "seed": "node database/scripts/data_transform.js && mongo reviews --eval 'db.reviews.drop()' && mongoimport --db=reviews --collection=reviews --file=database/sampledata/sample_data.json --jsonArray"
   },
@@ -38,6 +39,8 @@
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-add-module-exports": "^1.0.2",
+    "babel-plugin-styled-components": "^1.10.7",
+    "concurrently": "^5.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint-plugin-jest": "^23.6.0",
@@ -51,6 +54,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-test-renderer": "^16.12.0",
+    "styled-components": "^5.0.0",
     "webpack": "^4.41.5"
   }
 }
