@@ -45,10 +45,13 @@ const generateReviews = () => {
           first_name: faker.name.firstName(), // String representing customer's first name (REQUIRED)
           last_name: faker.name.lastName(), // String representing customer's last name (REQUIRED)
         },
+        top_reviewer: faker.random.boolean(), // Boolean representing whether the reviewer is a 'Top Reviewer'
+        helpful_reviewer: faker.random.boolean(), // Boolean representing whether the reviewer is a 'Helpful Reviewer'
       };
       let star_rating = data[reviewIdCount].overall; // Integer between 1 and 5 representing the number of stars the customer awarded (REQUIRED)
       let review_text = Math.random() < 0.7 ? data[reviewIdCount].reviewText : undefined; // String representing the customers textual review (NOT REQUIRED)
       let helpful_count = review_text ? faker.random.number(10) : undefined; // Integer of the number of times the 'Helpful' button was clicked by users (NOT REQUIRED)
+
       let picture = { // Embedded object representing a customer's uploaded image (NOT REQUIRED)
         picture_url: getNextImage(), // Array representing the urls of the customer-uploaded images (NOT REQUIRED)
         picture_upload_date: data[reviewIdCount].unixReviewTime, // Epoch time (or perhaps in some other ISO string format) (NOT REQUIRED)
