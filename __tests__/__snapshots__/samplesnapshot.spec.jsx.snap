@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reviews Component [Sample] snapshot renders 1`] = `
+<div
+  className="Reviews__ContainerDiv-sc-9we14s-1 guGHi"
+>
+  <div>
+    <h3
+      className="Reviews__Title-sc-9we14s-0 eXDlJh"
+    >
+      Customer Reviews
+    </h3>
+  </div>
+  <div
+    className="AverageRating__DivStarRatingsContainer-sc-45ec1l-0 dztfEo"
+  >
+    <a
+      className="AverageRating__DivStarRatingsSubContainer-sc-45ec1l-1 beZavB"
+    >
+      <span
+        className="AverageRating__SpanNumericalRating-sc-45ec1l-2 iqZpWD"
+      >
+        2.3
+      </span>
+      <span
+        className="AverageRating__SpanStarRatingsWrapper-sc-45ec1l-3 OFFfI"
+      >
+        <ul
+          className="AverageRating__UlStarRating-sc-45ec1l-4 ccoszO"
+        >
+          <i
+            className="AverageRating__IStar-sc-45ec1l-6 htpvxd material-icons"
+          >
+            star
+          </i>
+          <i
+            className="AverageRating__IStar-sc-45ec1l-6 htpvxd material-icons"
+          >
+            star
+          </i>
+          <i
+            className="AverageRating__IStar-sc-45ec1l-6 htpvxd material-icons"
+          >
+            star_half
+          </i>
+          <i
+            className="AverageRating__IStar-sc-45ec1l-6 eBTkoz material-icons"
+          >
+            star
+          </i>
+          <i
+            className="AverageRating__IStar-sc-45ec1l-6 eBTkoz material-icons"
+          >
+            star
+          </i>
+        </ul>
+        <span
+          className="AverageRating__SpanStarText-sc-45ec1l-5 jbdohF"
+        >
+          235
+           rating
+          s
+        </span>
+      </span>
+    </a>
+  </div>
+  <div
+    className="VerifiedReviewsHeader__DivVerifiedContainer-me9enb-0 vwlti"
+  >
+    <svg
+      className="VerifiedReviewsHeader__SvgGreenCheck-me9enb-1 mORJd"
+    >
+      <svg
+        viewBox="0 0 45 43"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          fill="none"
+          fillRule="evenodd"
+        >
+          <path
+            d="M45 21.25c0 2.257-2.895 4.035-3.565 6.072-.694 2.11.564 5.224-.731 6.98-1.31 1.776-4.707 1.55-6.505 2.841-1.78 1.279-2.606 4.545-4.744 5.23-2.064.661-4.668-1.48-6.955-1.48s-4.89 2.141-6.955 1.48c-2.138-.685-2.964-3.951-4.744-5.23-1.798-1.291-5.196-1.065-6.505-2.84-1.295-1.757-.037-4.87-.731-6.98C2.895 25.284 0 23.506 0 21.25c0-2.257 2.895-4.035 3.565-6.072.694-2.11-.564-5.224.731-6.98 1.31-1.776 4.707-1.55 6.505-2.841 1.78-1.279 2.606-4.545 4.744-5.23 2.064-.661 4.668 1.48 6.955 1.48s4.89-2.141 6.955-1.48c2.138.685 2.964 3.951 4.744 5.23 1.798 1.291 5.196 1.065 6.505 2.84 1.295 1.757.037 4.87.731 6.98.67 2.038 3.565 3.816 3.565 6.073"
+            fill="#a9d18c"
+          />
+          <path
+            d="M18.346 30.29a1.417 1.417 0 0 1-1.08-.412l-4.848-5.575a1.432 1.432 0 0 1 0-2.022 1.424 1.424 0 0 1 2.017 0l3.976 4.571L30.816 14.42a1.424 1.424 0 0 1 2.016 0 1.433 1.433 0 0 1 0 2.022L19.426 29.878a1.413 1.413 0 0 1-1.08.412z"
+            fill="#348700"
+          />
+        </g>
+      </svg>
+    </svg>
+    <div>
+      <div
+        className="VerifiedReviewsHeader__DivVerifiedBold-me9enb-2 eZrGxl"
+      >
+        100% Verified Reviews
+      </div>
+      <span
+        className="VerifiedReviewsHeader__SpanVerifiedGrey-me9enb-3 cgJNIt"
+      >
+        All reviews are from people who have redeemed deals with this merchant.
+      </span>
+    </div>
+  </div>
+  <div
+    className="ReviewsContainer__DivReviewsContainer-si8w61-0 lkvZrm"
+  >
+    <div
+      className="ReviewsContainer__DivReviewsContainerTitle-si8w61-1 lkUFzS"
+    >
+      Relevant Reviews
+    </div>
+    <div
+      className="ReviewCard__DivReviewCardContainer-sc-17g1xey-0 elOPkk"
+    >
+      <div
+        className="ReviewCardMiniProfile__DivReviewCardMiniProfileContainer-sc-17b6raw-0 ikvIh"
+      >
+        <div
+          className="ReviewCardMiniProfile__DivUserIconContainer-sc-17b6raw-1 jIZzVD"
+        >
+          <div
+            className="ReviewCardMiniProfile__DivUserIconCircle-sc-17b6raw-2 bVDNRK"
+          >
+            M
+          </div>
+        </div>
+        <div
+          className="ReviewCardMiniProfile__DivUserTextContainer-sc-17b6raw-3 cVsDwL"
+        >
+          <span
+            className="ReviewCardMiniProfile__SpanUserName-sc-17b6raw-4 bxJmiN"
+          >
+            Myrtis
+          </span>
+          <span>
+             · 
+            <span
+              className="ReviewerBadge__SpanReviewerBadge-plrfn1-0 wUfBX"
+            >
+              TOP REVIEWER
+            </span>
+            <span
+              className="ReviewerBadge__SpanReviewerBadge-plrfn1-0 wUfBX"
+            >
+              MOST HELPFUL
+            </span>
+          </span>
+          <div
+            className="ReviewCardMiniProfile__DivUserStats-sc-17b6raw-5 bJTykK"
+          >
+            <span
+              className="ReviewCardMiniProfile__SpanUserReviewCount-sc-17b6raw-6 bLeJfa"
+            >
+              <svg
+                className="ReviewCardMiniProfile__SvgIcon-sc-17b6raw-7 jTBCze"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.076 11.774c-.692.465-1.09.19-.886-.618l.895-3.562-2.7-2.31c-.631-.54-.47-1.017.364-1.067L4.2 4.01 5.473.585c.29-.78.761-.78 1.052 0L7.802 4.01l3.449.207c.832.05.997.527.364 1.068l-2.7 2.31.895 3.561c.202.806-.192 1.084-.887.618L6 9.809l-2.924 1.965z"
+                  fill="#A5A8AB"
+                  fillRule="nonzero"
+                />
+              </svg>
+              2
+               rating
+              s
+            </span>
+            <span
+              className="ReviewCardMiniProfile__SpanUserReviewCount-sc-17b6raw-6 bLeJfa"
+            >
+              <svg
+                className="ReviewCardMiniProfile__SvgIcon-sc-17b6raw-7 jTBCze"
+                viewBox="0 0 12 10"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 8l-2 2V7.874A4.002 4.002 0 0 1 4 0h4a4 4 0 1 1 0 8H5z"
+                  fill="#A5A8AB"
+                  fillRule="evenodd"
+                />
+              </svg>
+              6
+               review
+              s
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="ReviewCard__DivReviewCardRatingsDate-sc-17g1xey-1 dzrAOg"
+      >
+        <span>
+          <i
+            className="ReviewCard__IStar-sc-17g1xey-6 iLIgyZ material-icons"
+          >
+            star
+          </i>
+          <i
+            className="ReviewCard__IStar-sc-17g1xey-6 iLIgyZ material-icons"
+          >
+            star
+          </i>
+          <i
+            className="ReviewCard__IStar-sc-17g1xey-6 iLIgyZ material-icons"
+          >
+            star
+          </i>
+          <i
+            className="ReviewCard__IStar-sc-17g1xey-6 iLIgyZ material-icons"
+          >
+            star
+          </i>
+          <i
+            className="ReviewCard__IStar-sc-17g1xey-6 iLIgyZ material-icons"
+          >
+            star
+          </i>
+        </span>
+        <span>
+          · 
+          February 5, 2017
+        </span>
+      </div>
+      <div
+        className="ReviewCard__DivReviewCardText-sc-17g1xey-2 kipOkf"
+      />
+      <div
+        className="ReviewCard__DivReviewCardHelpfulEndorsement-sc-17g1xey-3 fVVwWv"
+      >
+        <a
+          className="ReviewCard__AReviewCardHelpfulEndorsement-sc-17g1xey-4 kaVpYz"
+        >
+          <svg
+            className="ReviewCard__SvgReviewCardHelpfulEndorsementIcon-sc-17g1xey-5 geWpVC"
+            viewBox="0 0 12 12"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2 12H0V5h2v7zm10-4.8c0 .526-.455.96-1.029.96h-.089c.377.154.669.516.666.94-.004.407-.32.776-.577.942v.002c0 .006-.226.122-.826.127a.944.944 0 0 1 .583.869c0 .526-.47.96-1.042.96H3V5.28l1.8-2.64V.96C4.8.435 5.256 0 5.829 0c.928 0 1.216.793 1.216 2.117 0 1.062-.188 2.202-.188 2.203h4.114c.574 0 1.029.434 1.029.96s-.455.96-1.029.96c.574 0 1.029.434 1.029.96z"
+              fillRule="evenodd"
+            />
+          </svg>
+          Helpful
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
