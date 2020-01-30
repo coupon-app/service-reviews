@@ -59,7 +59,7 @@ const AverageRating = ({ average, ratings }) => {
   const stars = [];
   let iconString = '';
   let starColor;
-  let remaining = average;
+  let remaining = average || 0;
 
   // For each star generate a jsx element with a corresponding star color and shape
   for (let i = 0; i < 5; i += 1) {
@@ -94,15 +94,19 @@ const AverageRating = ({ average, ratings }) => {
     <DivStarRatingsContainer>
       <DivStarRatingsSubContainer>
         <SpanNumericalRating>
-          {average.toFixed(1)}
+          {average ? average.toFixed(1) : 0}
         </SpanNumericalRating>
         <SpanStarRatingsWrapper>
           <UlStarRating>
             {stars}
           </UlStarRating>
-          <SpanStarText>
-            {Math.floor(ratings).toFixed(0)} rating{ratings > 1 ? "s" : null}
-          </SpanStarText>
+          {ratings ? (
+            <SpanStarText>
+              {Math.floor(ratings).toFixed(0)}
+              &#160;rating
+              {ratings > 1 ? 's' : null}
+            </SpanStarText>
+          ) : null}
         </SpanStarRatingsWrapper>
       </DivStarRatingsSubContainer>
     </DivStarRatingsContainer>
