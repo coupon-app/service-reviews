@@ -3,7 +3,12 @@ import styled from 'styled-components';
 
 import AverageRating from './Components/AverageRating';
 import VerifiedReviewsHeader from './Components/VerifiedReviewsHeader';
-import ReviewCard from './Components/ReviewCard';
+import ReviewsContainer from './Components/ReviewsContainer';
+
+/* ------------------------  TESTING ------------------------- */
+
+// Sample data to use while React isn't hooked-up to API
+import sampleData from '../../database/sampledata/sample_data.json';
 
 /* -------------------------  STYLES ------------------------- */
 
@@ -26,7 +31,7 @@ export default class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: [], // TODO: Replace with data from fetch call
+      reviews: sampleData, // TODO: Replace with data from fetch call
     };
   }
 
@@ -42,7 +47,7 @@ export default class Reviews extends React.Component {
         </div>
         <AverageRating average={2.3} ratings={235} />
         <VerifiedReviewsHeader />
-        <ReviewCard reviews={this.state.reviews} />
+        <ReviewsContainer reviews={this.state.reviews} />
       </ContainerDiv>
     );
   }
