@@ -47,7 +47,7 @@ const SpanStarText = styled.span`
 const IStar = styled.i`
   font-size: 15px;
   font-style: normal;
-  color: ${({ starColor }) => starColor ? "#ffc120" : "#e6e7e8;"};
+  color: ${({ starColor }) => (starColor ? '#ffc120' : '#e6e7e8')};
   font-family: Material Icons;
 `;
 
@@ -61,7 +61,7 @@ const AverageRating = ({ average, ratings }) => {
   let starColor;
   let remaining = average;
 
-  // For each star, loop through and generate a jsx element with a corresponding star color and shape
+  // For each star generate a jsx element with a corresponding star color and shape
   for (let i = 0; i < 5; i += 1) {
 
     // Determine star shape (filled or filled half)
@@ -83,11 +83,11 @@ const AverageRating = ({ average, ratings }) => {
 
     // Push the generateted star to the stars array for rendering later
     stars.push(
-      <IStar className="material-icons" key={i} starColor={starColor}>{iconString}</IStar>
+      <IStar className="material-icons" key={i} starColor={starColor}>{iconString}</IStar>,
     );
 
     // Reduce remaining variable before moving onto next star loop
-    remaining = remaining - 1;
+    remaining -= 1;
   }
 
   return (
