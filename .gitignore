@@ -3,8 +3,8 @@ node_modules/
 
 # artifacts
 public/bundle.js
-testing/__snapshots__
-testing/coverage
+__tests__/__snapshots__/
+__tests__/coverage/
 
 # misc
 .DS_Store

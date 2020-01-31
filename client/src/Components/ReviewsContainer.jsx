@@ -17,6 +17,9 @@ const DivReviewsContainerTitle = styled.div`
 
 /* -------------------------  RENDER ------------------------- */
 
+// This component may be able to be changed to a stateless component
+// if it doesn't require it's own state in the future.
+
 export default class ReviewsContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -29,10 +32,11 @@ export default class ReviewsContainer extends React.Component {
   // ONLY map reviews that include review text!! All others are just counted in the total ratings number.
 
   render() {
+    const { reviews } = this.props;
     return (
       <DivReviewsContainer>
         <DivReviewsContainerTitle>Relevant Reviews</DivReviewsContainerTitle>
-        <ReviewCard review={this.props.reviews[409]} />
+        {(reviews && reviews.length > 0) ? <ReviewCard review={reviews[0]} /> : <div>No reviews to display.</div>}
       </DivReviewsContainer>
     );
   }
