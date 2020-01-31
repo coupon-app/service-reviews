@@ -10,7 +10,7 @@ const path = require('path');
 const { data } = require('../sampledata/raw_sample_data');
 
 const numMaxProductIds = 100; // product IDs should range between 1 and 100.
-const numMaxReviews = 10; // maximum number of reviews per product id
+const numMaxReviews = 60; // maximum number of reviews per product id
 let reviewIdLastImageFound = 0; // variable used to track which object is being checked for image data
 let reviewIdCount = 0; // variable used to reference the raw data object's array
 
@@ -36,6 +36,7 @@ const generateReviews = () => {
     const productIdReviewNumber = Math.ceil(Math.random() * numMaxReviews);
 
     for (let i = 0; i < productIdReviewNumber; i += 1, reviewIdCount += 1) {
+      reviewIdCount = reviewIdCount >= data.length ? 0 : reviewIdCount;
       let review_id = reviewIdCount; // Auto-incrementing integer (key) (REQUIRED)
       let date_created = data[reviewIdCount].unixReviewTime * 1000; // Epoch time (or perhaps in some other ISO string format) (REQUIRED)
       let product_id = productId; // Integer between 1 and 100 (initially) (REQUIRED)
@@ -45,11 +46,11 @@ const generateReviews = () => {
           first_name: faker.name.firstName(), // String representing customer's first name (REQUIRED)
           last_name: faker.name.lastName(), // String representing customer's last name (REQUIRED)
         },
-        top_reviewer: faker.random.boolean(), // Boolean representing whether the reviewer is a 'Top Reviewer'
-        helpful_reviewer: faker.random.boolean(), // Boolean representing whether the reviewer is a 'Helpful Reviewer'
+        top_reviewer: Math.random() > 0.8, // Boolean representing whether the reviewer is a 'Top Reviewer'
+        helpful_reviewer: Math.random() > 0.8, // Boolean representing whether the reviewer is a 'Helpful Reviewer'
       };
       let star_rating = data[reviewIdCount].overall; // Integer between 1 and 5 representing the number of stars the customer awarded (REQUIRED)
-      let review_text = Math.random() < 0.7 ? data[reviewIdCount].reviewText : undefined; // String representing the customers textual review (NOT REQUIRED)
+      let review_text = Math.random() < 0.5 ? data[reviewIdCount].reviewText : undefined; // String representing the customers textual review (NOT REQUIRED)
       let helpful_count = review_text ? faker.random.number(10) : undefined; // Integer of the number of times the 'Helpful' button was clicked by users (NOT REQUIRED)
 
       let picture = { // Embedded object representing a customer's uploaded image (NOT REQUIRED)
