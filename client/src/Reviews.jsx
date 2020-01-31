@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 import AverageRating from './Components/AverageRating';
 import VerifiedReviewsHeader from './Components/VerifiedReviewsHeader';
@@ -25,42 +26,38 @@ const ContainerDiv = styled.div`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
+  max-width: 687px;
 `;
 
 export default class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: sampleData, // TODO: Replace with data from fetch call (reviews with text only!)
-      average: 2.3, // TODO: Replace with data from fetch call (reviews both with & without review text)
-      ratings: 399, // TODO: Replace with data from fetch call (or calculate in React function)
+      reviews: [], // TODO: Replace with data from fetch call (reviews with text only!)
+      average: 0, // TODO: Replace with data from fetch call (reviews both with & without review text)
+      ratings: 0, // TODO: Replace with data from fetch call (or calculate in React function)
     };
   }
 
-  // TODO: write function to extract average for all ratings retrieved from server
-  // TODO: write function to count number of ratings (reviews both with & without review text)
-  // QUESTION: Could these functions be incorporated into the database query on the server side?
-  //           Or would it just be easier to do it on the client side?
+  componentDidMount() {
+    this.updateReviewsForProductId();
+  }
 
-  /*
-  // Data shape from server could look something like:
-    {
-      data: [ // reviews with textual data ONLY
-        {
-          ... review ...
-        },
-        {
-          ... review
-        }
-      ],
-      ratings: 399, // ratings count retrieved from server
-      averageRating: 3.4, // average rating for all reviews for productId = [##]
-    }
-
-   */
-
-  // TODO: Write componentDidMount() function that fetches data from /api/reviews/:productId
+  // Function that fetches data from /api/reviews/:productId
   // and sets state with returned data
+  updateReviewsForProductId() {
+    const { productId } = this.props;
+
+    axios.get(`/api/reviews/${productId}`)
+      .then((response) => response.data)
+      .then((reviews) => {
+        this.setState({
+          reviews,
+          ratings: reviews.length,
+          average: (reviews.map((review) => review.star_rating).reduce((a, b) => a + b) / reviews.length),
+        });
+      });
+  }
 
   /* -------------------------  RENDER ------------------------- */
 
