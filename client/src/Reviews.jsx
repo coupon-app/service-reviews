@@ -31,23 +31,59 @@ export default class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: sampleData, // TODO: Replace with data from fetch call
+      reviews: sampleData, // TODO: Replace with data from fetch call (reviews with text only!)
+      average: 2.3, // TODO: Replace with data from fetch call (reviews both with & without review text)
+      ratings: 399, // TODO: Replace with data from fetch call (or calculate in React function)
     };
   }
 
+  // TODO: write function to extract average for all ratings retrieved from server
+  // TODO: write function to count number of ratings (reviews both with & without review text)
+  // QUESTION: Could these functions be incorporated into the database query on the server side?
+  //           Or would it just be easier to do it on the client side?
+
+  /*
+  // Data shape from server could look something like:
+    {
+      data: [ // reviews with textual data ONLY
+        {
+          ... review ...
+        },
+        {
+          ... review
+        }
+      ],
+      ratings: 399, // ratings count retrieved from server
+      averageRating: 3.4, // average rating for all reviews for productId = [##]
+    }
+
+   */
+
+  // TODO: Write componentDidMount() function that fetches data from /api/reviews/:productId
+  // and sets state with returned data
+
   /* -------------------------  RENDER ------------------------- */
 
-  // TODO: replace props with data retrieved from fetch call.
+  // TODO: replace props.reviews with data retrieved from fetch call.
 
   render() {
+    const { reviews, average, ratings } = this.state;
     return (
       <ContainerDiv>
-        <div>
-          <Title>Customer Reviews</Title>
-        </div>
-        <AverageRating average={2.3} ratings={235} />
-        <VerifiedReviewsHeader />
-        <ReviewsContainer reviews={this.state.reviews} />
+        <Title>Customer Reviews</Title>
+        {(reviews && reviews.length > 0)
+          ? (
+            <>
+              <AverageRating average={average} ratings={ratings} />
+              <VerifiedReviewsHeader />
+              <ReviewsContainer reviews={reviews} />
+            </>
+          )
+          : (
+            <>
+              <div>No reviews for this product yet</div>
+            </>
+          )}
       </ContainerDiv>
     );
   }

@@ -54,6 +54,10 @@ const IStar = styled.i`
 /* -------------------------  RENDER ------------------------- */
 
 const AverageRating = ({ average, ratings }) => {
+  const uiStrings = {
+    noRatingsMessage: 'No ratings',
+    ratingsMessage: 'rating',
+  };
 
   // Generate colored stars based on passed in average
   const stars = [];
@@ -63,7 +67,6 @@ const AverageRating = ({ average, ratings }) => {
 
   // For each star generate a jsx element with a corresponding star color and shape
   for (let i = 0; i < 5; i += 1) {
-
     // Determine star shape (filled or filled half)
     iconString = (remaining >= 1 || (remaining > 0 && remaining.toFixed(1) % 1 >= 0.8))
       ? "star"
@@ -100,13 +103,22 @@ const AverageRating = ({ average, ratings }) => {
           <UlStarRating>
             {stars}
           </UlStarRating>
-          {ratings ? (
-            <SpanStarText>
-              {Math.floor(ratings).toFixed(0)}
-              &#160;rating
-              {ratings > 1 ? 's' : null}
-            </SpanStarText>
-          ) : null}
+          {
+            ratings
+              ? (
+                <SpanStarText>
+                  {Math.floor(ratings).toFixed(0)}
+                  &#160;
+                  {uiStrings.ratingsMessage}
+                  {
+                    ratings > 1
+                      ? 's'
+                      : null
+                  }
+                </SpanStarText>
+              )
+              : <span>{uiStrings.noRatingsMessage}</span>
+          }
         </SpanStarRatingsWrapper>
       </DivStarRatingsSubContainer>
     </DivStarRatingsContainer>
