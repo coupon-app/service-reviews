@@ -27,10 +27,12 @@ app.use(express.static('public'));
 // database query function.
 
 app.get('/api/reviews/:productId', (req, res) => {
-  const { productId } = req.params; // Create variable to store productId from req.params
+  const { productId } = req.params; // Create variable to store productId req.params
+  const { page, limit } = req.query; // Create variable to store page/limit from req.query
+  console.log(`Querying the database with productId: ${productId}, page: ${page}, limit: ${limit}`);
   const pageOptions = { // Create variable to store pagination options from req.query
-    page: parseInt(req.query.page, 10) || 0,
-    limit: parseInt(req.query.limit, 10) || 15,
+    page: parseInt(page, 10) || 0,
+    limit: parseInt(limit, 10) || 15,
   };
 
   db.getReviewsForProductId(productId, pageOptions, (err, queryResults) => {

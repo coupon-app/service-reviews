@@ -6,7 +6,7 @@
   "scripts": {
     "build-dev": "webpack -d -w",
     "start-dev": "nodemon server",
-    "start-babel": "npx babel-node server",
+    "start-babel": "nodemon --exec babel-node server",
     "dev": "concurrently \"npm:build-dev\" \"npm:start-babel\"",
     "test": "jest",
     "seed": "node database/scripts/data_transform.js && mongo reviews --eval 'db.reviews.drop()' && mongoimport --db=reviews --collection=reviews --file=database/sampledata/sample_data.json --jsonArray"
@@ -36,6 +36,7 @@
     "@babel/node": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
+    "axios": "^0.19.2",
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-add-module-exports": "^1.0.2",

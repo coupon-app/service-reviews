@@ -1,14 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 import AverageRating from './Components/AverageRating';
 import VerifiedReviewsHeader from './Components/VerifiedReviewsHeader';
 import ReviewsContainer from './Components/ReviewsContainer';
-
-/* ------------------------  TESTING ------------------------- */
-
-// Sample data to use while React isn't hooked-up to API
-import sampleData from '../../database/sampledata/sample_data.json';
 
 /* -------------------------  STYLES ------------------------- */
 
@@ -25,49 +21,50 @@ const ContainerDiv = styled.div`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
+  max-width: 687px;
 `;
 
 export default class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: sampleData, // TODO: Replace with data from fetch call (reviews with text only!)
-      average: 2.3, // TODO: Replace with data from fetch call (reviews both with & without review text)
-      ratings: 399, // TODO: Replace with data from fetch call (or calculate in React function)
+      reviews: [],
+      average: 0,
+      ratings: 0,
+      page: 0, // TODO: Implement pagination in ReviewsContainer
+      limit: 15, // TODO: Implement limit selector in ReviewsContainer
     };
   }
 
-  // TODO: write function to extract average for all ratings retrieved from server
-  // TODO: write function to count number of ratings (reviews both with & without review text)
-  // QUESTION: Could these functions be incorporated into the database query on the server side?
-  //           Or would it just be easier to do it on the client side?
+  componentDidMount() {
+    this.updateReviewsForProductId();
+  }
 
-  /*
-  // Data shape from server could look something like:
-    {
-      data: [ // reviews with textual data ONLY
-        {
-          ... review ...
-        },
-        {
-          ... review
-        }
-      ],
-      ratings: 399, // ratings count retrieved from server
-      averageRating: 3.4, // average rating for all reviews for productId = [##]
-    }
-
-   */
-
-  // TODO: Write componentDidMount() function that fetches data from /api/reviews/:productId
+  // Function that fetches data from /api/reviews/:productId
   // and sets state with returned data
+
+  updateReviewsForProductId() {
+    const { productId } = this.props; // get productId from props
+    const { limit, page } = this.state; // get current page number and page limit from props
+
+    axios.get(`/api/reviews/${productId}?page=${page}&limit=${limit}`)
+      .then((response) => response.data)
+      .then((reviews) => {
+        this.setState({
+          reviews,
+          ratings: reviews.length,
+          average: (reviews.map((review) => review.star_rating).reduce((a, b) => a + b) / reviews.length),
+        });
+      });
+  }
 
   /* -------------------------  RENDER ------------------------- */
 
-  // TODO: replace props.reviews with data retrieved from fetch call.
-
   render() {
-    const { reviews, average, ratings } = this.state;
+    const {
+      reviews, average, ratings, page, limit,
+    } = this.state;
+
     return (
       <ContainerDiv>
         <Title>Customer Reviews</Title>
@@ -76,7 +73,7 @@ export default class Reviews extends React.Component {
             <>
               <AverageRating average={average} ratings={ratings} />
               <VerifiedReviewsHeader />
-              <ReviewsContainer reviews={reviews} />
+              <ReviewsContainer reviews={reviews} page={page} limit={limit} />
             </>
           )
           : (
