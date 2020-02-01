@@ -10,24 +10,33 @@ mongoose.connect('mongodb://localhost/reviews', {
 });
 
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', console.error.bind(console, 'Failed to connect to MongoDB:'));
 db.on('open', () => console.log('Successfully connected to MongoDB!'));
 
 
 // Function that retrieves 25 reviews from the database given a productId parameter
 // and pagination information
 // Reference: https://stackoverflow.com/questions/5539955/how-to-paginate-with-mongoose-in-node-js
-let getReviewsForProductId = (product_id, pageOptions, cb) => {
+const getReviewsForProductId = (product_id, pageOptions, cb) => {
   console.log(`About to execute a query for productId: ${product_id}, page: ${pageOptions.page}, limit: ${pageOptions.limit}`);
-  Reviews
-    .find({ product_id })
-    .skip(pageOptions.page * pageOptions.limit)
-    .sort({ date_created: -1 })
-    .limit(pageOptions.limit)
-    .exec((err, results) => {
-      if (err) cb(err);
-      cb(null, results);
-    });
+  Promise.all([
+    Reviews.aggregate()
+      .match({ product_id })
+      .group({ _id: null, average: { $avg: '$star_rating' }, count: { $sum: 1 } }),
+    Reviews
+      .find({ product_id, review_text: { $exists: true } })
+      .skip(pageOptions.page * pageOptions.limit)
+      .sort({ date_created: -1 })
+      .limit(pageOptions.limit),
+  ])
+    .then(([aggregate, resultsSubset]) => {
+      cb(null, {
+        count: aggregate[0].count,
+        average: aggregate[0].average,
+        resultsSubset,
+      });
+    })
+    .catch((err) => cb(err));
 };
 
 module.exports.getReviewsForProductId = getReviewsForProductId;
