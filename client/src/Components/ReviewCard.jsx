@@ -17,7 +17,7 @@ const DivReviewCardRatingsDate = styled.div`
 
 const DivReviewCardText = styled.div`
   padding-right: 12px;
-  width: 80%;
+  width: 100%;
 `;
 
 const DivReviewCardHelpfulEndorsement = styled.div`
@@ -57,12 +57,12 @@ const ReviewCard = ({ review }) => {
   const firstName = review.customer.customer_name.first_name;
   const reviewText = review.review_text;
   const reviewStarRating = review.star_rating;
-  const reviewImages = review.picture; // TODO: Render images in component
-  const ratings = 2; // TODO: get number of ratings from database
-  const reviews = 6; // TODO: get number of reviews from database
+  const reviewImages = review.picture; // TODO: [STRETCH] Render images in component
+  const ratings = review.customer.num_ratings || undefined;
+  const reviews = review.customer.num_reviews || undefined;
   const topReviewer = review.customer.top_reviewer;
   const helpfulReviewer = review.customer.helpful_reviewer;
-  const helpfulCount = review.helpful_count; // TODO: render helpful count on 'helpful' button
+  const helpfulCount = review.helpful_count; // TODO: [STRETCH] render helpful count on 'helpful' button
 
   // Generate readable string from javascript date object
   let dateCreated = new Date(review.date_created);

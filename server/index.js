@@ -35,9 +35,9 @@ app.get('/api/reviews/:productId', (req, res) => {
     limit: parseInt(limit, 10) || 15,
   };
 
-  db.getReviewsForProductId(productId, pageOptions, (err, queryResults) => {
+  db.getReviewsForProductId(parseInt(productId, 10), pageOptions, (err, queryResults) => {
     if (err) console.log('Error occured in database query: getReviewsForProductId.\n', err);
-    console.log(`Retrieved ${queryResults.length} customer reviews from database and sending back to client.`);
+    console.log(`Found ${queryResults.count} customer ratings with an average of ${queryResults.average} and retrieved ${queryResults.resultsSubset.length} from the database to send back to client.`);
     res.status(200).json(queryResults);
   });
 });

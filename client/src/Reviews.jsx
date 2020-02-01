@@ -49,11 +49,11 @@ export default class Reviews extends React.Component {
 
     axios.get(`/api/reviews/${productId}?page=${page}&limit=${limit}`)
       .then((response) => response.data)
-      .then((reviews) => {
+      .then((queryResults) => {
         this.setState({
-          reviews,
-          ratings: reviews.length,
-          average: (reviews.map((review) => review.star_rating).reduce((a, b) => a + b) / reviews.length),
+          reviews: queryResults.resultsSubset,
+          ratings: queryResults.count,
+          average: queryResults.average, // (queryResults.resultsSubset.map((review) => review.star_rating).reduce((a, b) => a + b) / queryResults.resultsSubset.length),
         });
       });
   }
