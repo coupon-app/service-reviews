@@ -12,7 +12,7 @@ const reviewSchema = new Schema(
       index: true,
       required: 'Review id cannot be blank',
     },
-    date_created: { // Epoch time (or perhaps in some other ISO string format) (REQUIRED)
+    date_created: { // Date and time review was created (REQUIRED)
       type: Date,
       required: 'Date created cannot be blank',
     },
@@ -36,6 +36,18 @@ const reviewSchema = new Schema(
           required: 'Customer last name cannot be blank',
         },
       },
+      top_reviewer: { // Boolean representing whether the reviewer is a 'Top Reviewer' (NOT REQUIRED)
+        type: Boolean,
+      },
+      helpful_reviewer: { // Boolean representing whether the reviewer is a 'Helpful Reviewer' (NOT REQUIRED)
+        type: Boolean,
+      },
+      num_ratings: { // Integer (random) which exists 20% of the time between 1 and 51 (NOT REQUIRED)
+        type: Number,
+      },
+      num_reviews: { // Integer (random) which exists 20% of the time between 1 and 21 (NOT REQUIRED)
+        type: Number,
+      },
     },
     star_rating: { // Integer between 1 and 5 representing the number of stars the customer awarded (REQUIRED)
       type: Number,
@@ -48,7 +60,7 @@ const reviewSchema = new Schema(
     helpful_count: Number, // Integer of the number of times the 'Helpful' button was clicked by users (NOT REQUIRED)
     picture: { // Embedded object representing a customer's uploaded image (NOT REQUIRED)
       picture_url: String, // String representing the url of the customer-uploaded image (NOT REQUIRED)
-      picture_upload_date: Date, // Epoch time (or perhaps in some other ISO string format) (NOT REQUIRED)
+      picture_upload_date: Date, // Date and time the image was uploaded (NOT REQUIRED)
     },
   },
 );

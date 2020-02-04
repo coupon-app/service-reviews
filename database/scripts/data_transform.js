@@ -46,10 +46,10 @@ const generateReviews = () => {
           first_name: faker.name.firstName(), // String representing customer's first name (REQUIRED)
           last_name: faker.name.lastName(), // String representing customer's last name (REQUIRED)
         },
-        top_reviewer: Math.random() > 0.8, // Boolean representing whether the reviewer is a 'Top Reviewer'
-        helpful_reviewer: Math.random() > 0.8, // Boolean representing whether the reviewer is a 'Helpful Reviewer'
-        num_ratings: Math.random() > 0.2 ? Math.ceil(Math.random() * 50) + 1 : undefined, // Integer (random) 20% of the time between 1 and 51 (NOT REQUIRED)
-        num_reviews: Math.random() > 0.2 ? Math.ceil(Math.random() * 20) + 1 : undefined, // Integer (random) 20% of the time between 1 and 21 (NOT REQUIRED)
+        top_reviewer: Math.random() > 0.8, // Boolean representing whether the reviewer is a 'Top Reviewer' (NOT REQUIRED)
+        helpful_reviewer: Math.random() > 0.8, // Boolean representing whether the reviewer is a 'Helpful Reviewer' (NOT REQUIRED)
+        num_ratings: Math.random() > 0.2 ? Math.ceil(Math.random() * 50) + 1 : undefined, // Integer (random) which exists 20% of the time between 1 and 51 (NOT REQUIRED)
+        num_reviews: Math.random() > 0.2 ? Math.ceil(Math.random() * 20) + 1 : undefined, // Integer (random) which exists 20% of the time between 1 and 21 (NOT REQUIRED)
       };
       let star_rating = data[i].overall; // Integer between 1 and 5 representing the number of stars the customer awarded (REQUIRED)
       let review_text = Math.random() < 0.5 ? data[i].reviewText : undefined; // String representing the customers textual review (NOT REQUIRED)

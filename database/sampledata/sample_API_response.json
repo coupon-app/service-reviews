@@ -1,0 +1,37 @@
+{
+  "count": 2,
+  "average": 4.5,
+  "resultsSubset": [
+    {
+      "review_id": 0,
+      "date_created": 1529193600000,
+      "product_id": 1,
+      "customer": {
+        "customer_id": "A31UBHTUUIFJUT",
+        "customer_name": {
+          "first_name": "Rosina",
+          "last_name": "Kassulke"
+        },
+        "top_reviewer": false,
+        "helpful_reviewer": true,
+        "num_ratings": 19
+      },
+      "star_rating": 5
+    },
+    {
+      "review_id": 1,
+      "date_created": 1528934400000,
+      "product_id": 1,
+      "customer": {
+        "customer_id": "A2MN5JQMIY0FQ2",
+        "customer_name": {
+          "first_name": "Omer",
+          "last_name": "Wehner"
+        },
+        "top_reviewer": false,
+        "helpful_reviewer": false
+      },
+      "star_rating": 4
+    }
+  ]
+}
