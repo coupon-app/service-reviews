@@ -22,14 +22,14 @@ These include:
 
 Ensure your MongoDB service is running.
 ```sh
-$ npm run build-dev
+$ npm run build-reviews
 ```
 (Seperate terminal)
 ```sh
-$ npm run start-dev
+$ npm run start-reviews
 ```
 
-Navigate to `http://localhost:3000`
+Navigate to `http://localhost:3001`
 
 ## Requirements
 
