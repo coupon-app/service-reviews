@@ -1,15 +1,15 @@
 {
   "name": "service-reviews",
-  "version": "1.0.0",
-  "description": "> Project description",
+  "version": "1.1.0",
+  "description": "> Micro-service component for Groupon-App FEC project.",
   "main": "index.js",
   "scripts": {
-    "build-dev": "webpack -d -w",
-    "start-dev": "nodemon server",
+    "build-reviews": "webpack -d",
+    "start-reviews": "node server",
     "start-babel": "nodemon --exec babel-node server",
-    "dev": "concurrently \"npm:build-dev\" \"npm:start-babel\"",
-    "test": "jest",
-    "seed": "node database/scripts/data_transform.js && mongo reviews --eval 'db.reviews.drop()' && mongoimport --db=reviews --collection=reviews --file=database/sampledata/sample_data.json --jsonArray"
+    "dev-concurrently": "concurrently \"npm:build-reviews\" \"npm:start-babel\"",
+    "test-reviews": "jest",
+    "seed-reviews": "node database/scripts/data_transform.js && mongo reviews --eval 'db.reviews.drop()' && mongoimport --db=reviews --collection=reviews --file=database/sampledata/sample_data.json --jsonArray"
   },
   "repository": {
     "type": "git",
@@ -22,21 +22,11 @@
   },
   "homepage": "https://github.com/coupon-app/service-reviews#readme",
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-import": "^2.20.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.18.0",
-    "eslint-plugin-react-hooks": "^1.7.0",
-    "webpack-cli": "^3.3.10"
-  },
-  "dependencies": {
-    "@babel/cli": "^7.8.3",
-    "@babel/core": "^7.8.3",
-    "@babel/node": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
-    "axios": "^0.19.2",
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-add-module-exports": "^1.0.2",
@@ -44,19 +34,30 @@
     "concurrently": "^5.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jest": "^23.6.0",
-    "express": "^4.17.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "faker": "^4.1.0",
     "jest": "^25.1.0",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
     "jest-styled-components": "^7.0.0",
-    "mongoose": "^5.8.9",
+    "nodemon": "^2.0.2",
+    "react-test-renderer": "^16.12.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.8.11",
     "morgan": "^1.9.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-test-renderer": "^16.12.0",
-    "styled-components": "^5.0.0",
-    "webpack": "^4.41.5"
+    "styled-components": "^5.0.1"
   }
 }
