@@ -57,8 +57,10 @@
     "express": "^4.17.1",
     "mongoose": "^5.8.11",
     "morgan": "^1.9.1",
+    "query-string": "^6.10.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2",
     "styled-components": "^5.0.1"
   }
 }

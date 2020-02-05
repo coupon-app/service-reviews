@@ -4,11 +4,13 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+const path = require('path');
 
 const db = require('../database');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const DIR_PUBLIC = process.env.DIR_PUBLIC || 'public';
 
 // ///////////////////////////////////////////////////////////////////////////////////////
 // MIDDLEWARE ////////////////////////////////////////////////////////////////////////////
@@ -17,7 +19,7 @@ const PORT = process.env.PORT || 3001;
 app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(DIR_PUBLIC));
 
 // ///////////////////////////////////////////////////////////////////////////////////////
 // ROUTES ////////////////////////////////////////////////////////////////////////////////
@@ -41,6 +43,10 @@ app.get('/api/reviews/:productId', (req, res) => {
     console.log(`Found ${queryResults.count} customer ratings with an average of ${queryResults.average} and retrieved ${queryResults.resultsSubset.length} from the database to send back to client.`);
     res.status(200).json(queryResults);
   });
+});
+
+app.get('/:productId', (req, res) => {
+  res.sendFile(path.join(__dirname, '../', 'public', 'index.html'));
 });
 
 
