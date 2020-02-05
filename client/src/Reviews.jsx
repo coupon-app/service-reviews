@@ -47,7 +47,7 @@ export default class Reviews extends React.Component {
     const { productId } = this.props; // get productId from props
     const { limit, page } = this.state; // get current page number and page limit from props
 
-    axios.get(`localhost:3001/api/reviews/${productId}?page=${page}&limit=${limit}`)
+    axios.get(`http://localhost:3001/api/reviews/${productId}?page=${page}&limit=${limit}`)
       .then((response) => response.data)
       .then((queryResults) => {
         this.setState({
