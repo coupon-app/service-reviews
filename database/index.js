@@ -3,7 +3,7 @@
 // ////////////////////////////////////////////////////////////////////////////////////////
 
 const mongoose = require('mongoose');
-const Reviews = require('./models/reviews');
+const { Reviews } = require('./models/reviews');
 
 mongoose.connect('mongodb://localhost/reviews', {
   useNewUrlParser: true,

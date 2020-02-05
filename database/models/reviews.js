@@ -3,9 +3,9 @@
 // Example taken from:
 // https://github.com/sharvit/mongoose-data-seed/blob/master/examples/md-seed-example/server/models/post.js
 
-import mongoose, { Schema } from 'mongoose';
+const mongoose = require('mongoose');
 
-const reviewSchema = new Schema(
+const reviewSchema = new mongoose.Schema(
   {
     review_id: { // Auto-incrementing integer (key) (REQUIRED)
       type: Number,
@@ -102,4 +102,4 @@ reviewSchema.methods = {
   },
 }; */
 
-export default mongoose.model('Reviews', reviewSchema);
+module.exports.Reviews = mongoose.model('Reviews', reviewSchema);
