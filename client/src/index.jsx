@@ -1,5 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+} from 'react-router-dom';
 import Reviews from './Reviews';
 
-ReactDOM.render(<Reviews productId={15} />, document.getElementById('reviews'));
+ReactDOM.render(
+  <Router>
+    <Route path="/:productId" component={Reviews} />
+  </Router>,
+  document.getElementById('reviews'),
+);
