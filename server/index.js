@@ -9,7 +9,7 @@ const path = require('path');
 const db = require('../database');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 const DIR_PUBLIC = process.env.DIR_PUBLIC || 'public';
 
 // ///////////////////////////////////////////////////////////////////////////////////////
@@ -46,6 +46,7 @@ app.get('/api/reviews/:productId', (req, res) => {
 });
 
 app.get('/:productId', (req, res) => {
+  console.log('Hit /:productId end point');
   res.sendFile(path.join(__dirname, '../', 'public', 'index.html'));
 });
 
