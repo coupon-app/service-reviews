@@ -14,7 +14,7 @@ COPY . /service-reviews
 RUN npm install --only=prod
 
 # Build app using webpack
-# RUN npm run build-reviews
+RUN webpack -p
 
 # What port will the container talk to the outside world with once created?
 EXPOSE 8080
