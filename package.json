@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build-reviews": "webpack -d",
+    "build-reviews-prod": "webpack -p",
     "start-reviews": "node server",
     "start-babel": "nodemon --exec babel-node server",
     "dev-concurrently": "concurrently \"npm:build-reviews\" \"npm:start-babel\"",
