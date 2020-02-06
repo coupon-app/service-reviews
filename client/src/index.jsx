@@ -8,8 +8,8 @@ import Reviews from './Reviews';
 
 ReactDOM.render(
   <Router>
-    <Route path="/:productId" component={Reviews} />
-    <Route path="/" component={Reviews} />
+    <Route exact path="/" component={Reviews} />
+    <Route exact path="/:productId" component={Reviews} />
   </Router>,
   document.getElementById('reviews'),
 );
