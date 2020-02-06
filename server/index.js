@@ -45,8 +45,8 @@ app.get('/api/reviews/:productId', (req, res) => {
   });
 });
 
+// Handle requests with a productId with a redirect to /public/index.html
 app.get('/:productId', (req, res) => {
-  console.log('Hit /:productId end point');
   res.sendFile(path.join(__dirname, '../', 'public', 'index.html'));
 });
 
