@@ -11,19 +11,13 @@ WORKDIR /service-reviews
 COPY . /service-reviews
 
 # Does your app have any dependencies that should be installed?
-RUN npm install
+RUN npm install --only=prod
+
+# Build app using webpack
+# RUN npm run build-reviews
 
 # What port will the container talk to the outside world with once created?
 EXPOSE 8080
-
-# Seed app
-# CMD ["apk", "add", "mongodb-tools"]
-
-# Seed app
-# CMD ["npm", "run", "seed-reviews"]
-
-# Build app
-CMD ["npm", "run", "build-reviews"]
 
 # Start app
 CMD ["npm", "run", "start-reviews"]
