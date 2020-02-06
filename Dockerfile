@@ -17,7 +17,7 @@ RUN npm install --only=prod
 RUN npm run build-reviews-prod
 
 # What port will the container talk to the outside world with once created?
-EXPOSE 8080
+EXPOSE 80
 
 # Start app
 CMD ["npm", "run", "start-reviews"]
