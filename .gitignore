@@ -3,6 +3,7 @@ node_modules/
 
 # artifacts
 public/bundle.js
+public/bundle.js.br
 __tests__/__snapshots__/
 __tests__/coverage/
 
