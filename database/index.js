@@ -5,7 +5,7 @@
 const mongoose = require('mongoose');
 const { Reviews } = require('./models/reviews');
 
-mongoose.connect('mongodb://localhost/reviews', {
+mongoose.connect('mongodb://database/reviews', {
   useNewUrlParser: true,
 });
 
@@ -31,8 +31,8 @@ const getReviewsForProductId = (product_id, pageOptions, cb) => {
   ])
     .then(([aggregate, resultsSubset]) => {
       cb(null, {
-        count: aggregate[0].count,
-        average: aggregate[0].average,
+        count: aggregate[0].count || 0,
+        average: aggregate[0].average || 0,
         resultsSubset,
       });
     })

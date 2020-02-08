@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  database:
+    image: mongo
+  database-seed:
+    build: ./database
+    depends_on:
+      - 'database'
+  service-reviews:
+    build: .
+    depends_on:
+      - 'database-seed'
+    ports: 
+      - '80:80'

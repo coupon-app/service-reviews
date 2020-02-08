@@ -56,7 +56,8 @@ export default class Reviews extends React.Component {
           ratings: queryResults.count,
           average: queryResults.average, // (queryResults.resultsSubset.map((review) => review.star_rating).reduce((a, b) => a + b) / queryResults.resultsSubset.length),
         });
-      });
+      })
+      .catch((err) => console.log(err));
   }
 
   /* -------------------------  RENDER ------------------------- */

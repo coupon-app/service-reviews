@@ -5,11 +5,12 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
+const compression = require('compression');
 
 const db = require('../database');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 80;
 const DIR_PUBLIC = process.env.DIR_PUBLIC || 'public';
 
 // ///////////////////////////////////////////////////////////////////////////////////////
@@ -20,6 +21,7 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
 app.use(express.static(DIR_PUBLIC));
+app.use(compression());
 
 // ///////////////////////////////////////////////////////////////////////////////////////
 // ROUTES ////////////////////////////////////////////////////////////////////////////////
@@ -45,6 +47,7 @@ app.get('/api/reviews/:productId', (req, res) => {
   });
 });
 
+// Handle requests with a productId with a redirect to /public/index.html
 app.get('/:productId', (req, res) => {
   res.sendFile(path.join(__dirname, '../', 'public', 'index.html'));
 });

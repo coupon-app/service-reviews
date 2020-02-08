@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build-reviews": "webpack -d",
+    "build-reviews-prod": "webpack -p",
     "start-reviews": "node server",
     "start-babel": "nodemon --exec babel-node server",
     "dev-concurrently": "concurrently \"npm:build-reviews\" \"npm:start-babel\"",
@@ -22,15 +23,8 @@
   },
   "homepage": "https://github.com/coupon-app/service-reviews#readme",
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.4",
     "@babel/node": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
-    "@babel/preset-react": "^7.8.3",
     "babel-jest": "^25.1.0",
-    "babel-loader": "^8.0.6",
-    "babel-plugin-add-module-exports": "^1.0.2",
-    "babel-plugin-styled-components": "^1.10.7",
     "concurrently": "^5.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
@@ -47,12 +41,18 @@
     "jest-enzyme": "^7.1.2",
     "jest-styled-components": "^7.0.0",
     "nodemon": "^2.0.2",
-    "react-test-renderer": "^16.12.0",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "react-test-renderer": "^16.12.0"
   },
   "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
     "axios": "^0.19.2",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-add-module-exports": "^1.0.2",
+    "babel-plugin-styled-components": "^1.10.7",
+    "compression": "^1.7.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.8.11",
@@ -61,6 +61,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
-    "styled-components": "^5.0.1"
+    "styled-components": "^5.0.1",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   }
 }
