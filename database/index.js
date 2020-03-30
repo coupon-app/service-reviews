@@ -5,8 +5,9 @@
 const mongoose = require('mongoose');
 const { Reviews } = require('./models/reviews');
 
-mongoose.connect('mongodb://database/reviews', {
+mongoose.connect('mongodb://localhost/reviews', {
   useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 const db = mongoose.connection;
