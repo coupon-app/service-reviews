@@ -22,7 +22,7 @@ These include:
 
 1. (Ensure your MongoDB service is running) `$ npm run seed-reviews`
 1. `$ npm run build-reviews`
-1. (Seperate terminal) `$ npm run start-reviews`
+1. `$ npm run start-reviews`
 
 Navigate to `http://localhost:3001`
 
