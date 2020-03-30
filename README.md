@@ -4,7 +4,7 @@ This full-stack component will emulate the customer reviews from a product page 
 
 A back-end server is also included in this repo to correctly handle routes to `/api/:productId`, and to serve review data to the front-end React-based component.
 
-![](img/screenshot.jpg)
+![](img/screenshot.png)
 
 ## Related Projects
 
