@@ -10,7 +10,7 @@ const compression = require('compression');
 const db = require('../database');
 
 const app = express();
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 3001;
 const DIR_PUBLIC = process.env.DIR_PUBLIC || 'public';
 
 // ///////////////////////////////////////////////////////////////////////////////////////
