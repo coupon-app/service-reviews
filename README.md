@@ -20,7 +20,7 @@ These include:
 
 ## Usage
 
-1. (Ensure your MongoDB service is running) `$npm run seed-reviews`
+1. (Ensure your MongoDB service is running) `$ npm run seed-reviews`
 1. `$ npm run build-reviews`
 1. (Seperate terminal) `$ npm run start-reviews`
 
