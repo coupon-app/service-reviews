@@ -49,7 +49,8 @@ export default class Reviews extends React.Component {
   // and sets state with returned data
 
   updateReviewsForProductId() {
-    const { productId } = this.props || Math.ceil(Math.random() * 100); // Default productId (if none found in the route params)
+    console.log(this.props);
+    const productId = this.props.match.params.productId || Math.ceil(Math.random() * 100); // Default productId (if none found in the route params)
     const { limit, page } = this.state; // get current page number and page limit from props
 
     axios.get(`/api/reviews/${productId}?page=${page}&limit=${limit}`)

@@ -23,14 +23,21 @@ describe('Reviews Component', () => {
     helpful_count: 2,
   }];
 
+  // React Router passes a 'match' object to props, and is required for Reviews to render correctly
+  const match = {
+    params: {
+      productId: 99,
+    },
+  };
+
   test('Should render and match the snapshot', () => {
-    const component = renderer.create(<Reviews />);
+    const component = renderer.create(<Reviews match={match} />);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test('Should include correct heading title text', () => {
-    const wrapper = shallow(<Reviews />);
+    const wrapper = shallow(<Reviews match={match} />);
     expect(wrapper.find('Reviews__Title').text()).toContain('Customer Reviews');
   });
 
@@ -41,7 +48,7 @@ describe('Reviews Component', () => {
   // });
 
   test('Should contain a VerifiedReviewsHeader component', () => {
-    const wrapper = shallow(<Reviews productId={3} />);
+    const wrapper = shallow(<Reviews match={match} />);
     wrapper.setState({
       reviews,
     });
@@ -49,7 +56,7 @@ describe('Reviews Component', () => {
   });
 
   test('Should contain a ReviewsContainer component', () => {
-    const wrapper = shallow(<Reviews productId={3} />);
+    const wrapper = shallow(<Reviews match={match} />);
     wrapper.setState({
       reviews,
     });
@@ -57,7 +64,7 @@ describe('Reviews Component', () => {
   });
 
   test('Should display a message if there are no reviews, and not render review components', () => {
-    const wrapper = shallow(<Reviews />);
+    const wrapper = shallow(<Reviews match={match} />);
     wrapper.setState({
       reviews: null,
       average: null,
