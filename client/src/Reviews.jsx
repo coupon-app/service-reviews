@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import queryString from 'query-string';
+import {
+  BrowserRouter as Router,
+  Route,
+} from 'react-router-dom';
+// import queryString from 'query-string';
 
 import AverageRating from './Components/AverageRating';
 import VerifiedReviewsHeader from './Components/VerifiedReviewsHeader';
@@ -32,8 +36,8 @@ export default class Reviews extends React.Component {
       reviews: [],
       average: 0,
       ratings: 0,
-      page: queryString.parse(this.props.location.search).page || 0, // TODO: Implement pagination in ReviewsContainer
-      limit: queryString.parse(this.props.location.search).limit || 15, // TODO: Implement limit selector in ReviewsContainer
+      // page: queryString.parse(this.props.location.search).page || 0, // TODO: Implement pagination in ReviewsContainer
+      // limit: queryString.parse(this.props.location.search).limit || 15, // TODO: Implement limit selector in ReviewsContainer
     };
   }
 
@@ -45,7 +49,7 @@ export default class Reviews extends React.Component {
   // and sets state with returned data
 
   updateReviewsForProductId() {
-    const productId = this.props.match.params.productId || Math.ceil(Math.random() * 100); // Default productId (if none found in the route params)
+    const { productId } = this.props || Math.ceil(Math.random() * 100); // Default productId (if none found in the route params)
     const { limit, page } = this.state; // get current page number and page limit from props
 
     axios.get(`/api/reviews/${productId}?page=${page}&limit=${limit}`)
