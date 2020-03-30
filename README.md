@@ -35,8 +35,10 @@ The following are required:
 ### Installing Dependencies
 
 From within the root directory:
+
 `$ npm install`
 
 ### Testing
 Tests and test coverage using Jest/Enzyme is included, and can be run via the command line:
+
 `$ npm run test-reviews`
