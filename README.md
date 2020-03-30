@@ -20,15 +20,14 @@ These include:
 
 ## Usage
 
-1. (Ensure your MongoDB service is running) `$npm run seed-reviews`
+1. (Ensure your MongoDB service is running) `$ npm run seed-reviews`
 1. `$ npm run build-reviews`
-1. (Seperate terminal) `$ npm run start-reviews`
+1. `$ npm run start-reviews`
 
 Navigate to `http://localhost:3001`
 
 ## Requirements
 The following are required:
-
 - Node (any recent version > 6). An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 ## Development
@@ -41,4 +40,5 @@ From within the root directory:
 
 ### Testing
 Tests and test coverage using Jest/Enzyme is included, and can be run via the command line:
-- `$ npm run test-reviews`
+
+`$ npm run test-reviews`
