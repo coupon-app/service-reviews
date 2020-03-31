@@ -14,9 +14,12 @@ These include:
   - https://github.com/coupon-app/service-image-carousel
   - https://github.com/coupon-app/service-deals
 
+Proxy related to these services can be found here:
+  - https://github.com/coupon-app/proxy-reviews
+
 ## Table of Contents
 
-1. [Usage](#Usage)
+1. [Usage](#usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
 
